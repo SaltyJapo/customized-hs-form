@@ -1,6 +1,9 @@
-    form.customized-hs-form .hs-fieldtype-select .input:after {
-      display:none !important;
-    }
+   form.customized-hs-form .hs-fieldtype-select .input:after {
+    display:none !important;
+   }
+   .customized-hs-form .input {
+    position:relative !important;
+   }
   .customized-hs-form .styled-radio-label,
   .customized-hs-form .styled-select-label{
     position:relative;
