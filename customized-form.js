@@ -216,24 +216,3 @@ $.fn.customizeForm = function() {
   };
 
 
-
-
-
-// HOW TO USE 
- 
-// {{ require_css(get_asset_url('/impel2020/css/customized-form.css')) }}
-// {{ require_js(get_asset_url('/impel2020/js/form/customized-form.js')) }}
-// {% require_js %}
-// <script>
-//   window.addEventListener('message', event => {
-//     if(event.data.type === 'hsFormCallback' 
-//        && event.data.eventName === 'onFormReady' 
-//        && event.data.id == '{{ module.form_field.form_id }}') {
-//       console.log("Form Loaded!");
-      
-//       initCustomizeForm($('.{{name}} form[data-form-id="{{ module.form_field.form_id }}"]'));
-    
-//     }
-//   });
-// </script>
-// {% end_require_js %}
