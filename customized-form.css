@@ -1,1 +1,156 @@
+    form.customized-hs-form .hs-fieldtype-select .input:after {
+      display:none !important;
+    }
+  .customized-hs-form .styled-radio-label,
+  .customized-hs-form .styled-select-label{
+    position:relative;
+    border: 0;
+    border-bottom: 1px solid #005DF2;
+    
+    color: #002C72;
+    display: inline-block;
+    
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.188;
+    padding: 15px 20px;
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 0px;
+    
+    cursor:pointer;
+  }
+  .customized-hs-form .styled-radio-label:after,
+  .customized-hs-form .styled-select-label:after {
+    content: "";
+    background: url(https://www.impel.global/hubfs/down-arrow.svg);
+    height: 25px;
+    width: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    position: absolute;
+    z-index: 2;
+    right: 4%;
+    bottom: 13px;
+    
+    transition:0.3s ease transform;
+    -webkit-transition:0.3s ease transform;
+  }
+  .customized-hs-form .styled-radio-label.open:after,
+  .customized-hs-form .styled-select-label.open:after {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+  }
+  .customized-hs-form .radio-select-inner,
+  .customized-hs-form .select-inner {
+    display:none;
+    position:absolute;
+    background:#FFF;
+    width:100%;
+    z-index:24;
+    margin-bottom:-1px;
+    padding:20px 15px;
+  }
+  .customized-hs-form .select-inner-scrolling {
+    max-height:256px;
+    overflow-y:auto !important;
+  }
+  /* width */
+  .customized-hs-form .select-inner-scrolling::-webkit-scrollbar {
+    width: 16px;
+  }
 
+  /* Track */
+  .customized-hs-form .select-inner-scrolling::-webkit-scrollbar-track {
+    background: #fff;
+    border:1px solid #D9ECFF;
+  }
+
+  /* Handle */
+  .customized-hs-form .select-inner-scrolling::-webkit-scrollbar-thumb {
+    background: #D9ECFF;
+  }
+
+  /* Handle on hover */
+  .customized-hs-form .select-inner-scrolling::-webkit-scrollbar-thumb:hover {
+    background: #D9ECFF;
+  }
+  .customized-hs-form .radio-inner .radio-select-inner > div,
+  .customized-hs-form .select-inner .select-inner-scrolling > div {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 28px;
+    color: #002C72;
+    padding:5px 0px;
+    cursor:pointer;
+  }
+  
+  .customized-hs-form .radio-inner .radio-select-inner > div:hover,
+  .customized-hs-form .radio-inner .radio-select-inner > div.active,
+  .customized-hs-form .styled-select-item.active,
+  .customized-hs-form .styled-select-item:hover{
+    font-weight:600 !important;
+  }
+  
+  .customized-hs-form .select-inner-scrolling {
+    display:block;
+  }
+  .customized-hs-form .radio-radio-inner {
+    display:none;
+  }
+  
+  @media (min-width:992px){
+    .customized-hs-form .styled-radio-label {
+      display:none;
+    }
+    .customized-hs-form .radio-radio-inner{
+      display: flex;
+      gap: 38px;
+      padding-left: 15px;
+      height: 50px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      align-content: center;
+      justify-content: flex-start;
+    }
+    .customized-hs-form .select-inner-scrolling {
+      display:block;
+    }
+    .customized-hs-form span.styled-radio-item {
+      position:relative;
+      padding-left:34px;
+      cursor:pointer;
+    }
+    .customized-hs-form span.styled-radio-item:before{
+      content:"";
+      width:25px;
+      height:25px;
+      border-radius:100%;
+      background:#D9ECFF;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+    .customized-hs-form span.styled-radio-item.active:after{
+      content:"";
+      width:11px;
+      height:11px;
+      border-radius:100%;
+      background:#005DF2;
+      position: absolute;
+      left: 7px;
+      top: 7px;
+    }
+  }
+  @media (max-width:767px){
+    .customized-hs-form .styled-radio-label,
+    .customized-hs-form .styled-select-label{
+      font-size: 14px;
+      line-height: 24px;
+    }
+    form.customized-hs-form .form-columns-2 input {
+      width:100%;
+    }
+  }
