@@ -51,7 +51,7 @@ $.fn.customizeForm = function() {
       },
       InitActions: function(){
         customizedForm.find('.styled-radio-item').click(function(){
-          var inputTarget = $('#'+$(this).attr('data-id'));
+          var inputTarget = customizedForm.find('[id="'+$(this).attr('data-id')+'"]');
           inputTarget.prop("checked", true).change();
           var parent = $(this).closest('.radio-inner');
 
@@ -71,7 +71,7 @@ $.fn.customizeForm = function() {
         });
         customizedForm.find('.styled-select-item').click(function(){
           var parent = $(this).parent();
-          var inputTarget = $('#'+$(this).attr('data-id'));
+          var inputTarget = customizedForm.find('[id="'+$(this).attr('data-id')+'"]');
           var optionValue= $(this);
 
           parent.find('.styled-select-item').removeClass('active');
