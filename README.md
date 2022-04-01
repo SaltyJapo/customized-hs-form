@@ -9,6 +9,14 @@ Needs jQuery to work.
 // HOW TO USE 
 
 ```
+
+<script type="text/javascript" src="/YOUR-DIRECTORY/js/jquery.1.7.1.js"></script>
+
+{{ require_css(get_asset_url('/YOUR-DIRECTORY/css/customized-form.css')) }}
+{{ require_js(get_asset_url('/YOUR-DIRECTORY/js/form/customized-form.js')) }}
+
+{% require_js %}
+<script>
 window.addEventListener('message', event => {
 
   if(event.data.type === 'hsFormCallback'   
@@ -19,5 +27,7 @@ window.addEventListener('message', event => {
   }
   
 });
+</script>
+{% end_require_js %}
 ```
 
