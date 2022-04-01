@@ -61,8 +61,9 @@ $.fn.customizeForm = function() {
 
           var MainParent = $(this).closest('.radio-inner').parent();
           MainParent.find('.styled-radio-label').text(inputTarget.next().text());
-
-          if ($(this).closest('.radio-select-inner') && $(this).closest('.radio-select-inner').length > 0){
+          
+          var radioSelectContainer = $(this).closest('.radio-select-inner');
+          if (radioSelectContainer && radioSelectContainer.length > 0){
             MainParent.find('.styled-radio-label').removeClass('open');
             MainParent.find('.radio-select-inner').slideUp('fast');
           }
@@ -112,9 +113,9 @@ $.fn.customizeForm = function() {
         var htmlDomRadio = $('<div>').attr({class:'radio-radio-inner'});
 
 
-
-        if (inputList.find('li') && inputList.find('li').length > 0){
-          inputList.find('li').each(function(){
+        var inputListItems = inputList.find('li');
+        if (inputListItems && inputListItems.length > 0){
+          inputListItems.each(function(){
             htmlDomRadio.append(
               $('<span>').attr({
                 'class': 'styled-radio-item',
@@ -122,7 +123,7 @@ $.fn.customizeForm = function() {
               }).text($(this).text())
             );
           });
-          inputList.find('li').each(function(){
+          inputListItems.each(function(){
             htmlDomSelect.append(
               $('<div>').attr({
                 'class': 'styled-radio-item',
@@ -141,9 +142,10 @@ $.fn.customizeForm = function() {
       constructSelectInputs: function(inputSelect){
         var htmlDom = $('<div>').attr({class:'select-inner'});
         var htmlDomInner = $('<div>').attr({class:'select-inner-scrolling'});
-        if (inputSelect.find('option') && inputSelect.find('option').length > 0){
+        var inputSelectOptions = inputSelect.find('option');
+        if (inputSelectOptions && inputSelectOptions.length > 0){
           var indexOptions = 0;
-          inputSelect.find('option').each(function(){
+          inputSelectOptions.each(function(){
             if (indexOptions == 0 && $(this).attr('value') == ''){
             }else {
               htmlDomInner.append(
@@ -214,5 +216,3 @@ $.fn.customizeForm = function() {
     });
     customizedForm__Actions.InitActions();
   };
-
-
