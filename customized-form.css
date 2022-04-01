@@ -23,6 +23,7 @@
   .customized-hs-form .styled-radio-label:after,
   .customized-hs-form .styled-select-label:after {
     content: "";
+    /* change this to actual arrowdown icon for your page */
     background: url(https://www.impel.global/hubfs/down-arrow.svg);
     height: 25px;
     width: 25px;
