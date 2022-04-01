@@ -22,7 +22,12 @@ Needs jQuery to work.
        && event.data.id == '{{ module.form_field.form_id }}') {
       console.log("Form Loaded!");
       
-      initCustomizeForm($('.{{name}} form[data-form-id="{{ module.form_field.form_id }}"]'));
+      initCustomizeForm($('.{{name}} form[data-form-id="{{ module.form_field.form_id }}"]'),
+      {
+        selecFields:true,
+        radioButtons:true,
+        searchableSelect:true // default false
+      });
     
     }
   });
