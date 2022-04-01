@@ -13,7 +13,7 @@ Needs jQuery to work.
 <script type="text/javascript" src="/YOUR-DIRECTORY/js/jquery.1.7.1.js"></script>
 
 {{ require_css(get_asset_url('/impel2020/css/customized-form.css')) }}
-{{ require_js(get_asset_url('/impel2020/js/form/customized-form-v2.js')) }}
+{{ require_js(get_asset_url('/impel2020/js/form/customized-form.js')) }}
 {% require_js %}
 <script>
   window.addEventListener('message', event => {
