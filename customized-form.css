@@ -24,7 +24,7 @@
   .customized-hs-form .styled-select-label:after {
     content: "";
     /* change this to actual arrowdown icon for your page */
-    background: url(https://www.impel.global/hubfs/down-arrow.svg);
+    background: url('https://icons.veryicon.com/png/o/internet--web/prejudice/down-arrow-5.png');
     height: 25px;
     width: 25px;
     background-size: contain;
