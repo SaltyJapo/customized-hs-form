@@ -221,7 +221,7 @@
 //        && event.data.id == '{{ module.form_field.form_id }}') {
 //       console.log("Form Loaded!");
         
-//       $('.{{name}} form[data-form-id="{{ module.form_field.form_id }}"]').addClass('customized-hs-form').customizeForm();
+//       $('.{{name}} form[data-form-id="{{ module.form_field.form_id }}"]').customizeForm();
     
 //     }
 //   });
