@@ -1,5 +1,7 @@
 THIS IS INSIDE HUBSPOT MODULE, WHEN A FORM IS SELECTED AND LOADED
 
+<script type="text/javascript" src="/YOUR-DIRECTORY/js/jquery.1.7.1.js"></script>
+
 {{ require_css(get_asset_url('/impel2020/css/customized-form.css')) }}
 {{ require_js(get_asset_url('/impel2020/js/form/customized-form.js')) }}
 {% require_js %}
@@ -9,9 +11,8 @@ THIS IS INSIDE HUBSPOT MODULE, WHEN A FORM IS SELECTED AND LOADED
        && event.data.eventName === 'onFormReady' 
        && event.data.id == '{{ module.form_field.form_id }}') {
       console.log("Form Loaded!");
-        
-      $('.{{name}} form[data-form-id="{{ module.form_field.form_id }}"]')
-        .customizeForm();
+      
+      initCustomizeForm($('.{{name}} form[data-form-id="{{ module.form_field.form_id }}"]'));
     
     }
   });
