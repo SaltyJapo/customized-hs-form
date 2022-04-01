@@ -222,7 +222,7 @@ $.fn.customizeForm = function() {
 // HOW TO USE 
  
 // {{ require_css(get_asset_url('/impel2020/css/customized-form.css')) }}
-// {{ require_js(get_asset_url('/impel2020/js/form/customized-form-v2.js')) }}
+// {{ require_js(get_asset_url('/impel2020/js/form/customized-form.js')) }}
 // {% require_js %}
 // <script>
 //   window.addEventListener('message', event => {
