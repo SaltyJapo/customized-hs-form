@@ -62,70 +62,89 @@ $.fn.customizeForm = function(options) {
       }
     },
     InitActions: function(){
-      customizedForm.find('.styled-radio-item').click(function(){
-        var inputTarget = customizedForm.find('[id="'+$(this).attr('data-id')+'"]');
-        inputTarget.prop("checked", true).change();
-        var parent = $(this).closest('.radio-inner');
-
-        parent.find('.styled-radio-item').removeClass('active');
-        parent.find('.styled-radio-item[data-id="'+$(this).attr('data-id')+'"]').addClass('active');
-        //$(this).addClass('active');
-
-        var MainParent = $(this).closest('.radio-inner').parent();
-        MainParent.find('.styled-radio-label').text(inputTarget.next().text());
-
-        var radioSelectContainer = $(this).closest('.radio-select-inner');
-        if (radioSelectContainer && radioSelectContainer.length > 0){
-          MainParent.find('.styled-radio-label').removeClass('open');
-          MainParent.find('.radio-select-inner').slideUp('fast');
-        }
-
-      });
-      customizedForm.find('.styled-select-item').click(function(){
-        var parent = $(this).parent();
-        var inputTarget = customizedForm.find('[id="'+$(this).attr('data-id')+'"]');
-        var optionValue= $(this);
-
-        parent.find('.styled-select-item').removeClass('active');
-        $(this).addClass('active');
-
-        inputTarget.parent().find('.styled-select-label').text(optionValue.text());
-        inputTarget.val(optionValue.attr('data-value')).change();
-
-        inputTarget.closest('.input').find('.styled-select-label').removeClass('open');
-        inputTarget.closest('.input').find('.select-inner').slideUp('fast');
-
-      });
-
-      customizedForm.find('.styled-select-label').click(function(e){
-        e.stopPropagation();
-        $(this).toggleClass('open');
-        $(this).next().slideToggle('fast');
-      });
-
-      customizedForm.find('.styled-radio-label').click(function(e){
-        e.stopPropagation();
-        $(this).toggleClass('open');
-        $(this).next().find('.radio-select-inner').slideToggle('fast');
-      });
       
-      customizedForm.find('.select-input-search input').on("change keyup", function(){
-        var mySearch = $(this);
-        var selectionInputs = mySearch.closest('.input').find('.styled-select-item');
-        selectionInputs.hide();
-        selectionInputs.each(function(){
-          var selectionInputItem = $(this);
-          var itemText = selectionInputItem.text().toLowerCase();
-          if (itemText.indexOf(mySearch.val().toLowerCase()) > -1){
-            selectionInputItem.show();
-          }
+      
+      // select
+      if (options.selecFields){
+        customizedForm.find('.styled-select-item').click(function(){
+          var parent = $(this).parent();
+          var inputTarget = customizedForm.find('[id="'+$(this).attr('data-id')+'"]');
+          var optionValue= $(this);
+
+          parent.find('.styled-select-item').removeClass('active');
+          $(this).addClass('active');
+
+          inputTarget.parent().find('.styled-select-label').text(optionValue.text());
+          inputTarget.val(optionValue.attr('data-value')).change();
+
+          inputTarget.closest('.input').find('.styled-select-label').removeClass('open');
+          inputTarget.closest('.input').find('.select-inner').slideUp('fast');
+
         });
-      });
+
+        customizedForm.find('.styled-select-label').click(function(e){
+          e.stopPropagation();
+          $(this).toggleClass('open');
+          $(this).next().slideToggle('fast');
+        });
+      }
+      
+      
+      // radio
+      if (options.radioButtons){
+        customizedForm.find('.styled-radio-item').click(function(){
+          var inputTarget = customizedForm.find('[id="'+$(this).attr('data-id')+'"]');
+          inputTarget.prop("checked", true).change();
+          var parent = $(this).closest('.radio-inner');
+
+          parent.find('.styled-radio-item').removeClass('active');
+          parent.find('.styled-radio-item[data-id="'+$(this).attr('data-id')+'"]').addClass('active');
+          //$(this).addClass('active');
+
+          var MainParent = $(this).closest('.radio-inner').parent();
+          MainParent.find('.styled-radio-label').text(inputTarget.next().text());
+
+          var radioSelectContainer = $(this).closest('.radio-select-inner');
+          if (radioSelectContainer && radioSelectContainer.length > 0){
+            MainParent.find('.styled-radio-label').removeClass('open');
+            MainParent.find('.radio-select-inner').slideUp('fast');
+          }
+
+        });
+        customizedForm.find('.styled-radio-label').click(function(e){
+          e.stopPropagation();
+          $(this).toggleClass('open');
+          $(this).next().find('.radio-select-inner').slideToggle('fast');
+        });
+      }
+      
+      // searchable
+      if (options.searchableSelect){
+        customizedForm.find('.select-input-search input').on("change keyup", function(){
+          var mySearch = $(this);
+          var selectionInputs = mySearch.closest('.input').find('.styled-select-item');
+          selectionInputs.hide();
+          selectionInputs.each(function(){
+            var selectionInputItem = $(this);
+            var itemText = selectionInputItem.text().toLowerCase();
+            if (itemText.indexOf(mySearch.val().toLowerCase()) > -1){
+              selectionInputItem.show();
+            }
+          });
+        });
+      }
 
       $(document).on("mouseup touchend", function(e){
         var target = $(e.target);
-        customizedForm__Actions.toggleSelectionSelect(target,e);
-        customizedForm__Actions.toggleSelectionRadio(target,e);
+        
+        if (options.selecFields){
+          customizedForm__Actions.toggleSelectionSelect(target,e);
+        }
+        
+        if (options.radioButtons){
+          customizedForm__Actions.toggleSelectionRadio(target,e);
+        }
+        
       });
     },
     constructRadioInputs: function(inputList){
@@ -184,6 +203,7 @@ $.fn.customizeForm = function(options) {
           indexOptions++;
         });
       }
+      // searchable
       if (options.searchableSelect){
         htmlDomInner.prepend(
           $('<div>').attr({class: "select-input-search"}).append(
@@ -199,12 +219,7 @@ $.fn.customizeForm = function(options) {
     }
   };
 
-  // Start function
-
-  //   options.selecFields
-  //   options.radioButtons
-  //   options.searchableSelect
-  
+  // Start function  
   if (options.selecFields){
     var selectFields = customizedForm.find('.hs-fieldtype-select .input select');
     selectFields.each(function(){
